@@ -17,7 +17,7 @@ class UserInfo(models.Model):
 
 
 class Course(models.Model):
-    course_number = models.CharField(maxlength=20, primary_key=True)  # 课程号
+    course_number = models.CharField(max_length=20, primary_key=True)  # 课程号
     course_name = models.CharField(max_length=20)  # 课程名
     course_teacher_name = models.CharField(max_length=8)  # 授课教师
     course_teacher_contact = models.EmailField()  # 授课教师联系方式
@@ -55,4 +55,4 @@ class Comment(models.Model):
     comment_time = models.DateTimeField(auto_now_add=True)  # 评论时间，已设置自动添加
 
     def __str__(self):
-        return str(self.course_text)
+        return str(self.comment_text)
