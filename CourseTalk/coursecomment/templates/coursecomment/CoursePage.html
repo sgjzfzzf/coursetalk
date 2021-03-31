@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+    <script type="text/javascript" src="{% static 'coursecomment/CoursePage.js' %}"></script>
+</head>
+
+<body>
+    This course has been found. The information will be printed here.<br>
+    {% if courses %}
+    <select id="choose_teacher" onchange="whenChooseTeacher(this.id);">
+        <option value="None" selected="selected">---</option>
+        {% for teacher in teachers %}
+        <option value={{teacher}}>{{teacher}}</option>
+        {% endfor %}
+    </select>
+    <ul>Course Name:{{courses.0.course_name}}</ul>
+    <ul>Course ID:{{courses.0.course_ID}}</ul>
+    <ul id="teacher_name"></ul>
+    <ul>Course mark:{{courses.0.liked_comment_number}}</ul>
+    <ul>Course average score:{{courses.0.average_score}}</ul>
+    <ul id="course_mark_teacher">Course mark of the teacher:{{courses.0.liked_teacher_comment_number}}</ul>
+    <ul id="course_score_teacher">Course score of the teacher:{{courses.0.teacher_average_score}}</ul>
+    Comments are following.
+    {% for comment in comments %}
+    <ul>Comment Text:{{comment.comment_text}}|Comment Time:{{comment.comment_time}}|Comment
+        Likes:{{comment.comment_likes}}</ul>
+    {% endfor %}
+    {% endif %}
+</body>
