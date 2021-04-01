@@ -1,4 +1,13 @@
-whenChooseTeacher = function (id) {
+function whenChooseTeacher(id) {
+    var course_id = document.getElementById("course_id").innerHTML;
     var teacher = document.getElementById(id).value;
-    document.getElementById("teacher_name").innerHTML = "Course Teacher Name:" + teacher;
+    var httpReq = new XMLHttpRequest();
+    var url = '/getTeacherCoursePage/' + course_id + '/' + teacher;
+    httpReq.open('GET', url, true);
+    httpReq.send();
+    httpReq.onreadystatechange = function () {
+        if (httpReq.status == 200 && httpReq.readyState == 4) {
+            document.getElementById("getAjaxInfo").innerHTML = httpReq.responseText;
+        }
+    }
 }

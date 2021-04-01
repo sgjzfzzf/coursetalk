@@ -1,0 +1,9 @@
+{% if course.teacher %}
+<p>Teacher Name:{{course.teacher.teacher_name}}</p>
+<p>Teacher Email:{{course.teacher.teacher_contact}}</p>
+<p>Teacher average score:{{course.teacher_average_score}}</p>
+<p>Teacher mark:{{course.teacher_average_score}}</p>
+{% endif %}
+{% for comment in comments %}
+<ul>{{comment.comment_text}}|{{comment.comment_time}}|{{comment.total_likes}}</ul>
+{% endfor %}

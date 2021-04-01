@@ -5,3 +5,5 @@ from .models import *
 admin.site.register(UserInfo)
 admin.site.register(Course)
 admin.site.register(Comment)
+admin.site.register(Teacher)
+admin.site.register(Like)
